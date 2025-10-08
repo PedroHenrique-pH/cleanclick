@@ -1,0 +1,62 @@
+cleanclick/
+│
+├── app/
+│   ├── __init__.py
+│   ├── models.py             # Modelos do banco de dados
+│   ├── routes.py             # Rotas principais (públicas)
+│   ├── admin_routes.py       # Rotas administrativas
+│   ├── forms.py              # Formulários Flask-WTF
+│   ├── utils.py              # Funções auxiliares
+│   │
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   ├── js/
+│   │   │   └── main.js
+│   │   ├── images/
+│   │   └── uploads/
+│   │
+│   ├── templates/
+│   │   ├── base.html         # Layout principal
+│   │   ├── home.html
+│   │   ├── product.html
+│   │   ├── cart.html
+│   │   ├── checkout.html
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   └── admin/
+│   │       ├── dashboard.html
+│   │       └── products.html
+│   │
+│   ├── blueprints/
+│   │   ├── shop/
+│   │   │   ├── __init__.py
+│   │   │   ├── routes.py
+│   │   │   ├── models.py
+│   │   │   └── forms.py
+│   │   ├── users/
+│   │   │   ├── __init__.py
+│   │   │   ├── routes.py
+│   │   │   ├── models.py
+│   │   │   └── forms.py
+│   │   └── admin/
+│   │       ├── __init__.py
+│   │       ├── routes.py
+│   │       └── models.py
+│
+├── migrations/               # Arquivos do Alembic (se usar Flask-Migrate)
+│
+├── instance/
+│   └── config.py             # Configurações específicas de ambiente
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_auth.py
+│   ├── test_cart.py
+│   └── test_checkout.py
+│
+├── .env                      # Variáveis de ambiente (chaves, conexões)
+├── requirements.txt           # Dependências do projeto
+├── config.py                  # Configurações globais (DEBUG, SECRET_KEY, DB)
+├── run.py                     # Ponto de entrada do app
+└── README.md
