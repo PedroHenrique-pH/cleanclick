@@ -1,13 +1,55 @@
-import React from 'react';
-import Button from './Button';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Dropdown from "./Dropdown";
 
-const Header: React.FC = () => {
+export interface MenuItem {
+  title: string;
+  route?: string;
+  children?: MenuItem[];
+}
+
+const menuItems: MenuItem[] = [
+  {
+    title: "Home",
+    route: "/",
+  },
+  {
+    title: "Produtos",
+    children: [
+      {
+        title: "Hinkle Horns",
+        route: "/products/hinkle-horns",
+      },
+      {
+        title: "Doozers",
+        route: "/products/doozers",
+      },
+      {
+        title: "Zizzer-zazzers",
+        route: "/products/zizzer-zazzers",
+      },
+    ],
+  },
+];
+
+export default function Header() {
   return (
-    <header className="absolute top-0 right-0 z-10 flex gap-6 pt-6 pr-6">
-      <Button href="/minha_conta" variant="minha_conta">Kits</Button>
-      <Button href="/kits" variant="kits">Kits</Button>
+    <header className="flex gap-10 items-center bg-white py-4 px-2">
+      <Link href="://designly.biz" target="_blank">
+        <Image src="/logo.png" width={35} height={20} alt="logo" />
+      </Link>
+      <div className="flex gap-8 items-center text-white">
+        {menuItems.map((item) => {
+          return item.hasOwnProperty("children") ? (
+            <Dropdown item={item} />
+          ) : (
+            <Link className="text-black hover:text-blue-500" href={item?.route || ""}>
+              {item.title}
+            </Link>
+          );
+        })}
+      </div>
     </header>
   );
-};
-
-export default Header;
+}
